@@ -7,7 +7,41 @@
     <title>Sudoku App</title>
   </head>
   <body class="text-brand-950 dark:text-brand-600 dark:bg-brand-900 bg-white">
-    <h1 class="text-3xl font-bold">Sudo App!</h1>
     <script type="module" src="/main.js"></script>
+    <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+
+      <p>Sudoku App</p>
+      <div class="flex flex-col ...">
+        <div><!-- top navigation bar-->
+          <div><!-- help icon --></div>
+          <div><!-- light/dark mode icon --></div>
+          <div><!-- settings icon --></div>
+        </div>
+        <div><!-- difficultiy + timer -->
+          <div><!-- difficulty selector --></div>
+          <div>
+            <div><!-- time display--></div>
+            <div><!-- timer start-stop control--></div>
+          </div>
+        </div>
+        <div id="gameBoard"><!-- game board --></div>
+        <div><!-- numbers pad-->
+          <div><!-- number 1 button --></div>
+          <div><!-- number 2 button --></div>
+          <div><!-- number 3 button --></div>
+          <div><!-- number 4 button --></div>
+          <div><!-- number 5 button --></div>
+          <div><!-- number 6 button --></div>
+          <div><!-- number 7 button --></div>
+          <div><!-- number 8 button --></div>
+          <div><!-- number 9 button --></div>
+          <div><!-- erasor button --></div>
+        </div>
+        <div><!-- play mode-->
+          <div><!-- fill/guess switch (could work as an input wrapped in a div)--></div>
+        </div>
+      </div>
+    </div>
+    
   </body>
 </html>

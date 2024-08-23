@@ -6,18 +6,20 @@
     <link rel="stylesheet" href="output.css" />
     <title>Sudoku App</title>
   </head>
-  <body class="text-brand-950 dark:text-brand-600 dark:bg-brand-900 bg-white">
-    <script type="module" src="/main.js"></script>
-    <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
-
-      <p>Sudoku App</p>
-      <div class="flex flex-col ...">
-        <div><!-- top navigation bar-->
+  <body class="bg-white text-brand-950 dark:bg-brand-900 dark:text-brand-600">
+    <div
+      class="bg-gray-50 relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12"
+    >
+      <p class="underline">Sudoku App</p>
+      <div class="... flex flex-col">
+        <div>
+          <!-- top navigation bar-->
           <div><!-- help icon --></div>
           <div><!-- light/dark mode icon --></div>
           <div><!-- settings icon --></div>
         </div>
-        <div><!-- difficultiy + timer -->
+        <div>
+          <!-- difficultiy + timer -->
           <div><!-- difficulty selector --></div>
           <div>
             <div><!-- time display--></div>
@@ -25,7 +27,8 @@
           </div>
         </div>
         <div id="gameBoard"><!-- game board --></div>
-        <div><!-- numbers pad-->
+        <div>
+          <!-- numbers pad-->
           <div><!-- number 1 button --></div>
           <div><!-- number 2 button --></div>
           <div><!-- number 3 button --></div>
@@ -37,11 +40,14 @@
           <div><!-- number 9 button --></div>
           <div><!-- erasor button --></div>
         </div>
-        <div><!-- play mode-->
-          <div><!-- fill/guess switch (could work as an input wrapped in a div)--></div>
+        <div>
+          <!-- play mode-->
+          <div>
+            <!-- fill/guess switch (could work as an input wrapped in a div)-->
+          </div>
         </div>
       </div>
     </div>
-    
+    <script type="module" src="/main.js"></script>
   </body>
 </html>

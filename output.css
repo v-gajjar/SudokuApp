@@ -753,6 +753,18 @@ no-scrollbar::-webkit-scrollbar {
     width: 40%;
   }
 
+  .md\:w-10 {
+    width: 2.5rem;
+  }
+
+  .md\:w-8 {
+    width: 2rem;
+  }
+
+  .md\:w-6 {
+    width: 1.5rem;
+  }
+
   .md\:gap-6 {
     gap: 1.5rem;
   }

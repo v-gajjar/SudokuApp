@@ -806,6 +806,14 @@ no-scrollbar::-webkit-scrollbar {
   .md\:gap-6 {
     gap: 1.5rem;
   }
+
+  .md\:pl-12 {
+    padding-left: 3rem;
+  }
+
+  .md\:pr-12 {
+    padding-right: 3rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -821,6 +829,14 @@ no-scrollbar::-webkit-scrollbar {
 
   .lg\:w-2\/5 {
     width: 40%;
+  }
+
+  .lg\:pl-16 {
+    padding-left: 4rem;
+  }
+
+  .lg\:pr-16 {
+    padding-right: 4rem;
   }
 }
 

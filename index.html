@@ -7,10 +7,10 @@
     <title>Sudoku App</title>
   </head>
   <body
-    class="bg-white text-brand-950 outline dark:bg-brand-900 dark:text-brand-600 no-scrollbar"
+    class="bg-white text-brand-950 no-scrollbar dark:bg-brand-900 dark:text-brand-600"
   >
     <!-- CONTAINER opens -->
-    <div class="px-10 py-4 outline md:mx-20 lg:mx-80 xl:mx-96">
+    <div class="px-10 py-4 md:mx-20 lg:mx-80 xl:mx-96">
       <!-- TOP NAV BAR: HELP, MODE, SETTINGS -->
       <div class="flex justify-between text-brand-300 dark:text-brand-700">
         <div>
@@ -50,7 +50,8 @@
             <title>Settings</title>
           </svg>
         </div>
-      </div>  <!-- TOP NAV BAR closes -->
+      </div>
+      <!-- TOP NAV BAR closes -->
 
       <!-- DIFFICULTY & TIMER -->
       <div class="mx-6 flex items-center justify-between md:mx-24 lg:mx-44">
@@ -71,36 +72,124 @@
           </svg>
         </div>
       </div>
-    </div>  <!-- CONTAINER closes -->
+    </div>
+    <!-- CONTAINER closes -->
 
     <!-- GAME BOARD -->
     <!-- TODO: Adjust grid dimensions -->
     <div
-      class="h-64 w-screen border border-4 border-brand-100 md:w-5/6 md:mx-auto lg:w-1/2"
+      class="h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5"
       id="gameBoard"
     ></div>
 
     <!-- KEYBOARD -->
-    <div class="px-10 py-4 outline md:mx-20 lg:mx-80 xl:mx-96 text-brand-950">
-      <div class="grid grid-cols-5 grid-rows-2 gap-4 justify-center items-center md:w-3/5 md:gap-6 md:mx-auto">
+    <div class="px-10 py-4 text-brand-950 outline md:mx-20 lg:mx-80 xl:mx-96">
+      <div
+        class="grid grid-cols-5 grid-rows-2 items-center justify-center gap-4 md:mx-auto md:w-3/5 md:gap-6"
+      >
         <!-- numbers pad-->
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">1</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">2</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">3</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">4</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">5</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">6</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">7</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">8</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10">9</button>
-        <button type="button" class="text-lg font-extrabold bg-brand-600 w-12 h-10 flex justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="fill-current w-5 text-brand-950 dark:text-brand-950 md:w-6"><path d="M290.7 57.4L57.4 290.7c-25 25-25 65.5 0 90.5l80 80c12 12 28.3 18.7 45.3 18.7L288 480l9.4 0L512 480c17.7 0 32-14.3 32-32s-14.3-32-32-32l-124.1 0L518.6 285.3c25-25 25-65.5 0-90.5L381.3 57.4c-25-25-65.5-25-90.5 0zM297.4 416l-9.4 0-105.4 0-80-80L227.3 211.3 364.7 348.7 297.4 416z"  fill="currentColor"/><title>Delete number</title></svg></button>
-        
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          1
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          2
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          3
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          4
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          5
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          6
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          7
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          8
+        </button>
+        <button
+          type="button"
+          class="h-10 w-12 bg-brand-600 text-lg font-extrabold"
+        >
+          9
+        </button>
+        <button
+          type="button"
+          class="flex h-10 w-12 items-center justify-center bg-brand-600 text-lg font-extrabold"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+            class="fill-current w-5 text-brand-950 md:w-6 dark:text-brand-950"
+          >
+            <path
+              d="M290.7 57.4L57.4 290.7c-25 25-25 65.5 0 90.5l80 80c12 12 28.3 18.7 45.3 18.7L288 480l9.4 0L512 480c17.7 0 32-14.3 32-32s-14.3-32-32-32l-124.1 0L518.6 285.3c25-25 25-65.5 0-90.5L381.3 57.4c-25-25-65.5-25-90.5 0zM297.4 416l-9.4 0-105.4 0-80-80L227.3 211.3 364.7 348.7 297.4 416z"
+              fill="currentColor"
+            />
+            <title>Delete number</title>
+          </svg>
+        </button>
       </div>
-      <div>
-        <!-- play mode-->
-        <div>
-          <!-- fill/guess switch (could work as an input wrapped in a div)-->
-        </div>
+
+      <!-- PLAY MODE -->
+      <div
+        class="mx-auto flex w-1/2 justify-between border border-4 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600"
+      >
+        <label
+          for="fillMode"
+          class="pl-10 active cursor-pointer transition-colors peer-checked:bg-brand-600 peer-checked:text-brand-100"
+        >
+          Fill
+          <input
+            type="radio"
+            name="mode"
+            id="fillMode"
+            class="peer sr-only"
+            value="fill"
+          />
+        </label>
+        <label
+          for="guessMode"
+          class="cursor-pointerpeer-checked:bg-brand-600 transition-colors peer-checked:text-brand-100 pr-10"
+        >
+          Guess
+          <input
+            type="radio"
+            name="mode"
+            id="guessMode"
+            class="peer sr-only"
+            value="guess"
+          />
+        </label>
       </div>
     </div>
 

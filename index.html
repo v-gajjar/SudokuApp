@@ -10,7 +10,7 @@
     class="bg-white text-brand-950 no-scrollbar dark:bg-brand-900 dark:text-brand-600"
   >
     <!-- CONTAINER opens -->
-    <div class="px-10 py-4 md:mx-20 lg:mx-80 xl:mx-96">
+    <div class="px-10 md:mx-20 lg:mx-80 xl:mx-96 flex flex-col gap-10">
       <!-- TOP NAV BAR: HELP, MODE, SETTINGS -->
       <div class="flex justify-between text-brand-300 dark:text-brand-700">
         <div>
@@ -78,14 +78,16 @@
     <!-- GAME BOARD -->
     <!-- TODO: Adjust grid dimensions -->
     <div
-      class="h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5"
+      class="h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
       id="gameBoard"
     ></div>
 
-    <!-- KEYBOARD -->
-    <div class="px-10 py-4 text-brand-950 outline md:mx-20 lg:mx-80 xl:mx-96">
+    
+    <!-- Container Reopens -->
+    <div class="px-10 py-4 text-brand-950 md:mx-20 lg:mx-80 xl:mx-96">
+      <!-- KEYBOARD -->
       <div
-        class="grid grid-cols-5 grid-rows-2 items-center justify-center gap-4 md:mx-auto md:w-3/5 md:gap-6"
+        class="grid grid-cols-5 grid-rows-2 items-center justify-center gap-4 md:mx-auto md:w-3/5 md:gap-6 my-6"
       >
         <!-- numbers pad-->
         <button
@@ -159,10 +161,11 @@
           </svg>
         </button>
       </div>
+    </div>
 
       <!-- PLAY MODE -->
       <div
-        class="mx-auto flex w-1/2 justify-between border border-4 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600"
+        class="mx-auto flex w-1/2 justify-between border border-4 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600 mb-12"
       >
         <label
           for="fillMode"

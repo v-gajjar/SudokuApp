@@ -21,5 +21,18 @@ export default {
     },
     extend: {},
   },
-  plugins: ["prettier-plugin-tailwindcss"],
+  plugins: [
+    "prettier-plugin-tailwindcss",
+    function ({ addUtilities }) {
+      addUtilities({
+        ".no-scrollbar": {
+          "scrollbar-width": "none", /* Firefox */
+          "-ms-overflow-style": "none", /* IE 10+ */
+        },
+        "no-scrollbar::-webkit-scrollbar": {
+          display: "none", /* All other browsers */
+        },
+      });
+    },
+  ],
 };

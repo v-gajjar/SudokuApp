@@ -23,6 +23,7 @@ function generateGameBoard() {
     let outerCell = document.createElement("div");
     outerCell.classList.add(["outerCell"]);
     outerCell.setAttribute(`id`,`cell-${i}` ); 
+    outerCell.classList.add(["border-2"]);
 
     gameBoard.appendChild(outerCell);
 

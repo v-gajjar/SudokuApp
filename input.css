@@ -4,6 +4,6 @@
 
 @layer components {
   .active {
-    @apply bg-brand-950 text-brand-100 dark:bg-brand-600 dark:text-brand-950 w-1/2;
+    @apply bg-brand-950 text-brand-100 dark:bg-brand-600 dark:text-brand-950;
   }
 }

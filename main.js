@@ -1,10 +1,5 @@
 "use strict";
 
-// Set height of gameBoard
-const gameBoard = document.getElementById("gameBoard");
-const gameBoardWidth = window.getComputedStyle(gameBoard).width;
-gameBoard.style.height = gameBoardWidth;
-
 const practiseBoard = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9],
     [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -18,6 +13,11 @@ const practiseBoard = [
 ];
     
 function generateGameBoard() {
+  // Set height of gameBoard
+  const gameBoard = document.getElementById("gameBoard");
+  const gameBoardWidth = window.getComputedStyle(gameBoard).width;
+  gameBoard.style.height = gameBoardWidth;
+
   gameBoard.innerHTML = "";
 
   for (let i = 0; i < practiseBoard.length; i++) {
@@ -48,4 +48,8 @@ function generateGameBoard() {
 }
 
 generateGameBoard();
+
+window.addEventListener("resize", () => {
+  generateGameBoard();
+});
 

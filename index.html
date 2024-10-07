@@ -13,12 +13,11 @@
     <div class="px-10 md:mx-20 lg:mx-80 xl:mx-96 flex flex-col gap-10">
       <!-- TOP NAV BAR: HELP, MODE, SETTINGS -->
       <div class="flex justify-between text-brand-300 dark:text-brand-700">
-        <div>
+        <button id="help">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 320 512"
-            id="help"
-            class="fill-current w-6 text-brand-300 dark:text-brand-700 cursor-pointer"
+            class="fill-current w-6 text-brand-300 dark:text-brand-700"
           >
             <path
               d="M80 160c0-35.3 28.7-64 64-64l32 0c35.3 0 64 28.7 64 64l0 3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74l0 1.4c0 17.7 14.3 32 32 32s32-14.3 32-32l0-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7l0-3.6c0-70.7-57.3-128-128-128l-32 0C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"
@@ -26,7 +25,8 @@
             />
             <title>Help</title>
           </svg>
-        </div>
+        </button>
+
         <div class="flex gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,12 +80,24 @@
 
     <!-- GAME BOARD -->
     <!-- TODO: Adjust grid dimensions -->
-    <div
-      class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
-      id="gameBoard"
-    ></div>
-
-    
+    <div class="relative">
+      <div
+        class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
+        id="gameBoard"
+      ></div>
+      <!-- DIALOGS -->
+      <!-- Help Dialog-->
+      <dialog id="helpDialog" class="absolute inset-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col gap-6 justify-center font-semibold text-center text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden">
+        <h2 class="text-brand-950 dark:text-brand-100 font-extrabold">How do I play Sudoku?</h2>
+          <p>Tap a cell, then select a number.</p>
+          <p>Fill each 3 x 3 set with numbers.</p>
+          <p class="text-balance">1 - 9 can only occur once in each row, column, and subgrid.</p>
+          <h2 class="text-brand-950 dark:text-brand-100 font-bold">Game Tips</h2>
+          <p  class="text-balance">Change puzzle difficulty, timer, or check guesses in ⚙️.</p>
+          <p><b>Fill</b> mode: Add 1 number to a cell.</p>
+          <p><b>Guess</b> mode: Add possible numbers to a cell.</p>
+      </dialog>
+    </div>
     <!-- Container Reopens -->
     <div class="px-10 py-4 text-brand-950 md:mx-20 lg:mx-80 xl:mx-96">
       <!-- KEYBOARD -->

@@ -13,11 +13,10 @@
     <div class="px-10 md:mx-20 lg:mx-80 xl:mx-96 flex flex-col gap-10">
       <!-- TOP NAV BAR: HELP, MODE, SETTINGS -->
       <div class="flex justify-between text-brand-300 dark:text-brand-700">
-        <div>
+        <button id="help">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 320 512"
-            id="help"
             class="fill-current w-6 text-brand-300 dark:text-brand-700 cursor-pointer"
           >
             <path
@@ -26,7 +25,8 @@
             />
             <title>Help</title>
           </svg>
-        </div>
+        </button>
+
         <div class="flex gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,23 +80,24 @@
 
     <!-- GAME BOARD -->
     <!-- TODO: Adjust grid dimensions -->
-    <div
-      class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6 relative"
-      id="gameBoard"
-    ></div>
-    <!-- DIALOGS -->
-    <!-- Help Dialog-->
-    <dialog id="helpDialog" class="h-3/6 w-screen bg-brand-50 dark:bg-brand-800 md:w-5/6 lg:w-2/5 absolute top-44 md:h-2/5 md:top-32 lg:h-1/2 lg:top-20 flex flex-col gap-6 justify-center text-brand-950 dark:text-brand-300 text-xl font-extrabold text-center text-wrap md:my-40 hidden">
-      <h2 class="text-brand-800 dark:text-brand-100">How do I play Sudoku?</h2>
-        <p>Tap a cell, then select a number.</p>
-        <p>Fill each 3 x 3 set with numbers.</p>
-        <p>1 - 9 can only occur once in each row, column, and subgrid.</p>
-        <h2 class="text-brand-800 dark:text-brand-100">Game Tips</h2>
-        <p>Click "Easy" to change puzzle difficulty.</p>
-        <p><b>Fill</b> mode: Add 1 number to a cell.</p>
-        <p><b>Guess</b> mode: Add possible numbers to a cell.</p>
-    </dialog>
-    
+    <div class="relative">
+      <div
+        class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
+        id="gameBoard"
+      ></div>
+      <!-- DIALOGS -->
+      <!-- Help Dialog-->
+      <dialog id="helpDialog" class="absolute inset-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col gap-6 justify-center font-semibold text-center text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden">
+        <h2 class="text-brand-950 dark:text-brand-100 font-extrabold">How do I play Sudoku?</h2>
+          <p>Tap a cell, then select a number.</p>
+          <p>Fill each 3 x 3 set with numbers.</p>
+          <p class="text-balance">1 - 9 can only occur once in each row, column, and subgrid.</p>
+          <h2 class="text-brand-950 dark:text-brand-100 font-bold">Game Tips</h2>
+          <p>Click <b>Easy</b> to change puzzle difficulty.</p>
+          <p><b>Fill</b> mode: Add 1 number to a cell.</p>
+          <p><b>Guess</b> mode: Add possible numbers to a cell.</p>
+      </dialog>
+    </div>
     <!-- Container Reopens -->
     <div class="px-10 py-4 text-brand-950 md:mx-20 lg:mx-80 xl:mx-96">
       <!-- KEYBOARD -->

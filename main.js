@@ -1,6 +1,6 @@
 "use strict";
 
-const helpDialog = document.getElementById("helpDialog")
+const helpDialog = document.getElementById("helpDialog");
 
 const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -55,10 +55,13 @@ window.addEventListener("resize", () => {
 
 document.getElementById("help").addEventListener("click", () => {
   helpDialog.classList.remove("hidden");
-  helpDialog.classList.add("block");
+
+  helpDialog.show(); 
 
   helpDialog.addEventListener("click", () => {
-    helpDialog.classList.remove("block");
     helpDialog.classList.add("hidden");
+    helpDialog.close();
   });
 });
+
+

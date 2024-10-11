@@ -62,6 +62,7 @@ document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.classList.remove("hidden");
   helpDialog.show();
 
+
   // TODO: Make this a separate function as it's used in at least two places so far.
   const gameBoard = document.getElementById("gameBoard");
   const gameBoardWidth = window.getComputedStyle(gameBoard).width;
@@ -71,6 +72,13 @@ document.getElementById("help").addEventListener("click", (event) => {
   if (helpDialog.open) {
     settingsIcon.classList.remove("fill-current");
     settingsIcon.classList.add("text-error", "dark:text-error");
+
+
+  if (helpDialog.open) {
+    settingsIcon.classList.remove("fill-current");
+    settingsIcon.classList.add("text-error");
+    settingsIcon.classList.add("dark:text-error");
+
 
     if (fillModeLabel.classList.contains("active")) {
       fillModeLabel.classList.add("activeHelpDialog");
@@ -114,4 +122,31 @@ document.body.addEventListener("click", (event) => {
 
     helpDialog.close();
   }
+<<<<<<< HEAD
+=======
+
+  helpDialog.addEventListener("click", () => {
+    helpDialog.classList.add("hidden");
+
+    settingsIcon.classList.add("fill-current");
+    settingsIcon.classList.remove("text-error");
+    settingsIcon.classList.remove("dark:text-error");
+
+    if (fillModeLabel.classList.contains("active")) {
+      fillModeLabel.classList.remove("activeHelpDialog");
+    } else {
+      fillModeLabel.classList.remove("text-error");
+    }
+
+    if (guessModeLabel.classList.contains("active")) {
+      guessModeLabel.classList.remove("activeHelpDialog");
+    } else {
+      guessModeLabel.classList.remove("text-error");
+      guessModeLabel.classList.add("text-brand-950");
+      guessModeLabel.classList.add("dark:text-brand-600");
+    }
+
+    helpDialog.close();
+  });
+>>>>>>> 3705c1f (chore: add highlight to settings when helpDialog open)
 });

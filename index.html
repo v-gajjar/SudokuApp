@@ -23,7 +23,8 @@
             <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
             <title>Help</title>
           </svg>
-        </div>
+        </button>
+
         <div class="flex gap-4">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -69,12 +70,24 @@
 
     <!-- GAME BOARD -->
     <!-- TODO: Adjust grid dimensions -->
-    <div
-      class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
-      id="gameBoard"
-    ></div>
-
-    
+    <div class="relative">
+      <div
+        class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
+        id="gameBoard"
+      ></div>
+      <!-- DIALOGS -->
+      <!-- Help Dialog-->
+      <dialog id="helpDialog" class="absolute inset-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col gap-6 justify-center font-semibold text-center text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden">
+        <h2 class="text-brand-950 dark:text-brand-100 font-extrabold">How do I play Sudoku?</h2>
+          <p>Tap a cell, then select a number.</p>
+          <p>Fill each 3 x 3 set with numbers.</p>
+          <p class="text-balance">1 - 9 can only occur once in each row, column, and subgrid.</p>
+          <h2 class="text-brand-950 dark:text-brand-100 font-bold">Game Tips</h2>
+          <p  class="text-balance">Change puzzle difficulty, timer, or check guesses in ⚙️.</p>
+          <p><b>Fill</b> mode: Add 1 number to a cell.</p>
+          <p><b>Guess</b> mode: Add possible numbers to a cell.</p>
+      </dialog>
+    </div>
     <!-- Container Reopens -->
     <div class="px-10 py-4 text-brand-950 md:mx-20 lg:mx-80 xl:mx-96">
       <!-- KEYBOARD -->

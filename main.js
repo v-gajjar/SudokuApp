@@ -1,6 +1,10 @@
 "use strict";
 
 const helpDialog = document.getElementById("helpDialog");
+const settingsIcon = document.getElementById("settings");
+const playMode = document.getElementById("playMode");
+const fillMode = document.getElementById("fillModeLabel");
+const guessMode = document.getElementById("guessModeLabel");
 
 const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -56,12 +60,34 @@ window.addEventListener("resize", () => {
 document.getElementById("help").addEventListener("click", () => {
   helpDialog.classList.remove("hidden");
 
-  helpDialog.show(); 
+  helpDialog.show();
+  playMode.classList.add("text-error");
+  playMode.classList.add("dark:text-error");
+
+  if (helpDialog.open) {
+    // settingsIcon.classList.add("drop-shadow-['0_25px_25px_rgba(255,_135,_73,_0.5)']");
+    playMode.classList.add("text-error");
+    playMode.classList.add("dark:text-error");
+
+    if (fillMode.classList.contains("active")) {
+      fillMode.classList.add("activeHelpDialog");
+    }
+    if (guessMode.classList.contains("active")) {
+      guessMode.classList.add("activeHelpDialog");
+    }
+  }
 
   helpDialog.addEventListener("click", () => {
     helpDialog.classList.add("hidden");
+    playMode.classList.remove("text-error");
+    playMode.classList.remove("dark:text-error");
+
+    if (fillMode.classList.contains("active")) {
+      fillMode.classList.remove("activeHelpDialog");
+    }
+    if (guessMode.classList.contains("active")) {
+      guessMode.classList.remove("activeHelpDialog");
+    }
     helpDialog.close();
   });
 });
-
-

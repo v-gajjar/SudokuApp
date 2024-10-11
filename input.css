@@ -6,4 +6,7 @@
   .active {
     @apply bg-brand-950 text-brand-100 dark:bg-brand-600 dark:text-brand-950;
   }
+  .activeHelpDialog {
+    @apply text-error dark:text-error;
+  }
 }

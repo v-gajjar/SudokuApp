@@ -181,12 +181,13 @@
 
       <!-- PLAY MODE -->
       <div
-        class="mx-auto flex w-1/2 justify-between border border-4 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600 mb-12 md:w-1/3 lg:w-1/5"
+        class="mx-auto flex w-1/2 justify-between border border-4 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600 mb-12 md:w-1/3 lg:w-1/5 transition-colors duration-500 ease-in-out"
         id="playMode"
       >
         <label
           for="fillMode"
-          class="active cursor-pointer transition-colors flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2"
+          id="fillModeLabel"
+          class="active cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2 transition-colors duration-500 ease-in-out"
         >
           Fill
           <input
@@ -199,7 +200,8 @@
         </label>
         <label
           for="guessMode"
-          class="cursor-pointer transition-colors flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2"
+          id="guessModeLabel"
+          class="cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2 transition-colors duration-500 ease-in-out"
         >
           Guess
           <input

@@ -38,7 +38,9 @@ function generateGameBoard() {
       innerCell.classList.add(["innerCell"]);
       innerCell.classList.add(["border"]);
       innerCell.classList.add(["text-center"]);
-      innerCell.classList.add(["align-middle"]);
+      innerCell.classList.add(["flex"]);
+      innerCell.classList.add(["justify-center"]);
+      innerCell.classList.add(["items-center"]);
       innerCell.setAttribute(`id`, `cell-${i}-${j}`);
       innerCell.innerText = practiseBoard[i][j];
 

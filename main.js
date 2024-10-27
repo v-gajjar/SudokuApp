@@ -55,6 +55,19 @@ window.addEventListener("resize", () => {
   generateGameBoard();
 });
 
+
+let guessModeInput = document.getElementById("guessMode");
+let fillModeInput = document.getElementById("fillMode");
+
+fillModeInput.addEventListener("change", toggleFillOrGuessMode());
+guessModeInput.addEventListener("change", toggleFillOrGuessMode());
+
+function toggleFillOrGuessMode(){
+  guessModeInput.parentElement.classList.toggle("active");
+  fillModeInput.parentElement.classList.toggle("active");
+}
+
+
 document.getElementById("help").addEventListener("click", () => {
   helpDialog.classList.remove("hidden");
 

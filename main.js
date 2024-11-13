@@ -63,21 +63,24 @@ document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.show();
 
 
+
+
   // TODO: Make this a separate function as it's used in at least two places so far.
   const gameBoard = document.getElementById("gameBoard");
   const gameBoardWidth = window.getComputedStyle(gameBoard).width;
   helpDialog.style.width = gameBoardWidth;
   helpDialog.style.height = gameBoardWidth;
 
+
   if (helpDialog.open) {
     settingsIcon.classList.remove("fill-current");
     settingsIcon.classList.add("text-error", "dark:text-error");
 
 
+
   if (helpDialog.open) {
     settingsIcon.classList.remove("fill-current");
-    settingsIcon.classList.add("text-error");
-    settingsIcon.classList.add("dark:text-error");
+    settingsIcon.classList.add("text-error", "dark:text-error");
 
 
     if (fillModeLabel.classList.contains("active")) {
@@ -94,6 +97,7 @@ document.getElementById("help").addEventListener("click", (event) => {
     event.stopPropagation();
   }
 });
+
 
 // Event listener to close the dialog when clicking outside
 document.body.addEventListener("click", (event) => {
@@ -122,15 +126,19 @@ document.body.addEventListener("click", (event) => {
 
     helpDialog.close();
   }
-<<<<<<< HEAD
-=======
 
-  helpDialog.addEventListener("click", () => {
+
+// Event listener to close the dialog when clicking outside
+document.body.addEventListener("click", (event) => {
+  if (
+    helpDialog.open &&
+    !helpDialog.contains(event.target) &&
+    event.target.id !== "help"
+  ) {
     helpDialog.classList.add("hidden");
 
     settingsIcon.classList.add("fill-current");
-    settingsIcon.classList.remove("text-error");
-    settingsIcon.classList.remove("dark:text-error");
+    settingsIcon.classList.remove("text-error", "dark:text-error");
 
     if (fillModeLabel.classList.contains("active")) {
       fillModeLabel.classList.remove("activeHelpDialog");
@@ -142,11 +150,8 @@ document.body.addEventListener("click", (event) => {
       guessModeLabel.classList.remove("activeHelpDialog");
     } else {
       guessModeLabel.classList.remove("text-error");
-      guessModeLabel.classList.add("text-brand-950");
-      guessModeLabel.classList.add("dark:text-brand-600");
+      guessModeLabel.classList.add("text-brand-950", "dark:text-brand-600");
     }
 
     helpDialog.close();
-  });
->>>>>>> 3705c1f (chore: add highlight to settings when helpDialog open)
 });

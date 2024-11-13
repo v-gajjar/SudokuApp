@@ -62,9 +62,6 @@ document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.classList.remove("hidden");
   helpDialog.show();
 
-
-
-
   // TODO: Make this a separate function as it's used in at least two places so far.
   const gameBoard = document.getElementById("gameBoard");
   const gameBoardWidth = window.getComputedStyle(gameBoard).width;
@@ -89,36 +86,6 @@ document.getElementById("help").addEventListener("click", (event) => {
     event.stopPropagation();
   }
 });
-
-
-// Event listener to close the dialog when clicking outside
-document.body.addEventListener("click", (event) => {
-  if (
-    helpDialog.open &&
-    !helpDialog.contains(event.target) &&
-    event.target.id !== "help"
-  ) {
-    helpDialog.classList.add("hidden");
-
-    settingsIcon.classList.add("fill-current");
-    settingsIcon.classList.remove("text-error", "dark:text-error");
-
-    if (fillModeLabel.classList.contains("active")) {
-      fillModeLabel.classList.remove("activeHelpDialog");
-    } else {
-      fillModeLabel.classList.remove("text-error");
-    }
-
-    if (guessModeLabel.classList.contains("active")) {
-      guessModeLabel.classList.remove("activeHelpDialog");
-    } else {
-      guessModeLabel.classList.remove("text-error");
-      guessModeLabel.classList.add("text-brand-950", "dark:text-brand-600");
-    }
-
-    helpDialog.close();
-  }
-})
 
 // Event listener to close the dialog when clicking outside
 document.body.addEventListener("click", (event) => {

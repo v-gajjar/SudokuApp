@@ -13,45 +13,38 @@
     <div class="px-10 md:mx-20 lg:mx-80 xl:mx-96 flex flex-col gap-10">
       <!-- TOP NAV BAR: HELP, MODE, SETTINGS -->
       <div class="flex justify-between text-brand-300 dark:text-brand-700">
-        <button id="help">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"
-            class="fill-current w-6 text-brand-300 dark:text-brand-700"
-          >
-            <path
-              d="M80 160c0-35.3 28.7-64 64-64l32 0c35.3 0 64 28.7 64 64l0 3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74l0 1.4c0 17.7 14.3 32 32 32s32-14.3 32-32l0-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7l0-3.6c0-70.7-57.3-128-128-128l-32 0C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"
-              fill="currentColor"
-            />
+        <button>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="currentColor" 
+            id="help" 
+            class="fill-current text-brand-300 dark:text-brand-700 size-10 cursor-pointer">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
             <title>Help</title>
           </svg>
         </button>
 
         <div class="flex gap-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 384 512"
-            id="mode"
-            class="fill-current w-8 text-brand-300 dark:text-brand-700 cursor-pointer"
-          >
-            <path
-              d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"
-              fill="currentColor"
-            />
-            <title>Switch to dark mode</title>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="currentColor" 
+            id="mode" 
+            class="fill-current text-brand-300 dark:text-brand-700 size-10 cursor-pointer">
+            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+          <title>Switch to dark mode</title>
           </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            id="settings"
-            class="fill-current w-8 text-brand-300 dark:text-brand-700 cursor-pointer"
-          >
-            <path
-              d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"
-              fill="currentColor"
-            />
+          
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="currentColor" 
+            id="settings" 
+            class="fill-current text-brand-300 dark:text-brand-700 size-10 cursor-pointer transition-colors duration-200">
+            <path fill-rule="evenodd" d="M11.828 2.25c-.916 0-1.699.663-1.85 1.567l-.091.549a.798.798 0 0 1-.517.608 7.45 7.45 0 0 0-.478.198.798.798 0 0 1-.796-.064l-.453-.324a1.875 1.875 0 0 0-2.416.2l-.243.243a1.875 1.875 0 0 0-.2 2.416l.324.453a.798.798 0 0 1 .064.796 7.448 7.448 0 0 0-.198.478.798.798 0 0 1-.608.517l-.55.092a1.875 1.875 0 0 0-1.566 1.849v.344c0 .916.663 1.699 1.567 1.85l.549.091c.281.047.508.25.608.517.06.162.127.321.198.478a.798.798 0 0 1-.064.796l-.324.453a1.875 1.875 0 0 0 .2 2.416l.243.243c.648.648 1.67.733 2.416.2l.453-.324a.798.798 0 0 1 .796-.064c.157.071.316.137.478.198.267.1.47.327.517.608l.092.55c.15.903.932 1.566 1.849 1.566h.344c.916 0 1.699-.663 1.85-1.567l.091-.549a.798.798 0 0 1 .517-.608 7.52 7.52 0 0 0 .478-.198.798.798 0 0 1 .796.064l.453.324a1.875 1.875 0 0 0 2.416-.2l.243-.243c.648-.648.733-1.67.2-2.416l-.324-.453a.798.798 0 0 1-.064-.796c.071-.157.137-.316.198-.478.1-.267.327-.47.608-.517l.55-.091a1.875 1.875 0 0 0 1.566-1.85v-.344c0-.916-.663-1.699-1.567-1.85l-.549-.091a.798.798 0 0 1-.608-.517 7.507 7.507 0 0 0-.198-.478.798.798 0 0 1 .064-.796l.324-.453a1.875 1.875 0 0 0-.2-2.416l-.243-.243a1.875 1.875 0 0 0-2.416-.2l-.453.324a.798.798 0 0 1-.796.064 7.462 7.462 0 0 0-.478-.198.798.798 0 0 1-.517-.608l-.091-.55a1.875 1.875 0 0 0-1.85-1.566h-.344ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd" />
             <title>Settings</title>
-          </svg>
+          </svg>          
         </div>
       </div>
       <!-- TOP NAV BAR closes -->
@@ -61,17 +54,14 @@
         <div class="text-lg font-extrabold" id="puzzleDifficulty">Easy</div>
         <div class="flex items-center gap-6">
           <div class="text-lg font-extrabold" id="puzzleTimer">1:23</div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"
-            id="pause"
-            class="fill-current w-9 text-brand-300 dark:text-brand-700 cursor-pointer"
-          >
-            <path
-              d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z"
-              fill="currentColor"
-            />
-            <title>Pause</title>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="currentColor" 
+            id="pause" 
+            class="size-12 fill-current text-brand-300 dark:text-brand-700 cursor-pointer">
+            <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
+          <title>Pause</title>
           </svg>
         </div>
       </div>
@@ -79,15 +69,14 @@
     <!-- CONTAINER closes -->
 
     <!-- GAME BOARD -->
-    <!-- TODO: Adjust grid dimensions -->
     <div class="relative">
       <div
-        class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
+        class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6 relative"
         id="gameBoard"
       ></div>
       <!-- DIALOGS -->
       <!-- Help Dialog-->
-      <dialog id="helpDialog" class="absolute inset-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col justify-center font-semibold text-center text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden gap-2">
+      <dialog id="helpDialog" class="absolute top-0 bottom-0 left-0 right-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col justify-center font-semibold text-center text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden gap-2 z-10">
         <h2 class="text-brand-950 dark:text-brand-100 font-extrabold">How do I play Sudoku?</h2>
           <p>Tap a cell, then select a number.</p>
           <p>Fill each 3 x 3 set with numbers.</p>
@@ -163,31 +152,29 @@
           type="button"
           class="flex h-10 w-12 items-center justify-center bg-brand-200 dark:bg-brand-600 text-lg font-extrabold"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 576 512"
-            id="erase"
-            class="fill-current w-5 text-brand-950 md:w-6 dark:text-brand-950"
-          >
-            <path
-              d="M290.7 57.4L57.4 290.7c-25 25-25 65.5 0 90.5l80 80c12 12 28.3 18.7 45.3 18.7L288 480l9.4 0L512 480c17.7 0 32-14.3 32-32s-14.3-32-32-32l-124.1 0L518.6 285.3c25-25 25-65.5 0-90.5L381.3 57.4c-25-25-65.5-25-90.5 0zM297.4 416l-9.4 0-105.4 0-80-80L227.3 211.3 364.7 348.7 297.4 416z"
-              fill="currentColor"
-            />
-            <title>Delete number</title>
-          </svg>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="currentColor" 
+          id="delete" 
+          class="size-6 fill-current text-brand-950 dark:text-brand-950">
+          <path fill-rule="evenodd" d="M2.515 10.674a1.875 1.875 0 0 0 0 2.652L8.89 19.7c.352.351.829.549 1.326.549H19.5a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-9.284c-.497 0-.974.198-1.326.55l-6.375 6.374ZM12.53 9.22a.75.75 0 1 0-1.06 1.06L13.19 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L15.31 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" clip-rule="evenodd" />
+        <title>Delete number</title>
+        </svg>
+        
         </button>
       </div>
     </div>
 
       <!-- PLAY MODE -->
       <div
-        class="mx-auto flex w-1/2 justify-between border border-4 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600 mb-12 md:w-1/3 lg:w-1/5 transition-colors duration-500 ease-in-out"
+        class="mx-auto flex w-1/2 justify-between border border-4 border-brand-950 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600 mb-12 md:w-1/3 lg:w-1/5 transition-colors duration-500 ease-in-out"
         id="playMode"
       >
         <label
           for="fillMode"
           id="fillModeLabel"
-          class="active cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2 transition-colors duration-500 ease-in-out"
+          class="active cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2"
         >
           Fill
           <input
@@ -201,7 +188,7 @@
         <label
           for="guessMode"
           id="guessModeLabel"
-          class="cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2 transition-colors duration-500 ease-in-out"
+          class="cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2 transition-colors duration-350 ease-in-out"
         >
           Guess
           <input

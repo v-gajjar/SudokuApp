@@ -2,9 +2,8 @@
 
 const helpDialog = document.getElementById("helpDialog");
 const settingsIcon = document.getElementById("settings");
-const playMode = document.getElementById("playMode");
-const fillMode = document.getElementById("fillModeLabel");
-const guessMode = document.getElementById("guessModeLabel");
+const fillModeLabel = document.getElementById("fillModeLabel");
+const guessModeLabel = document.getElementById("guessModeLabel");
 
 const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -42,7 +41,9 @@ function generateGameBoard() {
       innerCell.classList.add(["innerCell"]);
       innerCell.classList.add(["border"]);
       innerCell.classList.add(["text-center"]);
-      innerCell.classList.add(["align-middle"]);
+      innerCell.classList.add(["flex"]);
+      innerCell.classList.add(["justify-center"]);
+      innerCell.classList.add(["items-center"]);
       innerCell.setAttribute(`id`, `cell-${i}-${j}`);
       innerCell.innerText = practiseBoard[i][j];
 
@@ -57,37 +58,60 @@ window.addEventListener("resize", () => {
   generateGameBoard();
 });
 
-document.getElementById("help").addEventListener("click", () => {
+document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.classList.remove("hidden");
-
   helpDialog.show();
-  playMode.classList.add("text-error");
-  playMode.classList.add("dark:text-error");
+
+  // TODO: Make this a separate function as it's used in at least two places so far.
+  const gameBoard = document.getElementById("gameBoard");
+  const gameBoardWidth = window.getComputedStyle(gameBoard).width;
+  helpDialog.style.width = gameBoardWidth;
+  helpDialog.style.height = gameBoardWidth;
 
   if (helpDialog.open) {
-    // settingsIcon.classList.add("drop-shadow-['0_25px_25px_rgba(255,_135,_73,_0.5)']");
-    playMode.classList.add("text-error");
-    playMode.classList.add("dark:text-error");
+    settingsIcon.classList.remove("fill-current");
+    settingsIcon.classList.add("text-error", "dark:text-error");
 
-    if (fillMode.classList.contains("active")) {
-      fillMode.classList.add("activeHelpDialog");
+    if (fillModeLabel.classList.contains("active")) {
+      fillModeLabel.classList.add("activeHelpDialog");
+    } else {
+      fillModeLabel.classList.add("text-error");
     }
-    if (guessMode.classList.contains("active")) {
-      guessMode.classList.add("activeHelpDialog");
+
+    if (guessModeLabel.classList.contains("active")) {
+      guessModeLabel.classList.add("activeHelpDialog");
+    } else {
+      guessModeLabel.classList.add("text-error");
     }
+    event.stopPropagation();
   }
+});
 
-  helpDialog.addEventListener("click", () => {
+// Event listener to close the dialog when clicking outside
+document.body.addEventListener("click", (event) => {
+  if (
+    helpDialog.open &&
+    !helpDialog.contains(event.target) &&
+    event.target.id !== "help"
+  ) {
     helpDialog.classList.add("hidden");
-    playMode.classList.remove("text-error");
-    playMode.classList.remove("dark:text-error");
 
-    if (fillMode.classList.contains("active")) {
-      fillMode.classList.remove("activeHelpDialog");
+    settingsIcon.classList.add("fill-current");
+    settingsIcon.classList.remove("text-error", "dark:text-error");
+
+    if (fillModeLabel.classList.contains("active")) {
+      fillModeLabel.classList.remove("activeHelpDialog");
+    } else {
+      fillModeLabel.classList.remove("text-error");
     }
-    if (guessMode.classList.contains("active")) {
-      guessMode.classList.remove("activeHelpDialog");
+
+    if (guessModeLabel.classList.contains("active")) {
+      guessModeLabel.classList.remove("activeHelpDialog");
+    } else {
+      guessModeLabel.classList.remove("text-error");
+      guessModeLabel.classList.add("text-brand-950", "dark:text-brand-600");
     }
+
     helpDialog.close();
-  });
+  }
 });

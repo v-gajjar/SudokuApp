@@ -71,17 +71,9 @@ document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.style.width = gameBoardWidth;
   helpDialog.style.height = gameBoardWidth;
 
-
   if (helpDialog.open) {
     settingsIcon.classList.remove("fill-current");
     settingsIcon.classList.add("text-error", "dark:text-error");
-
-
-
-  if (helpDialog.open) {
-    settingsIcon.classList.remove("fill-current");
-    settingsIcon.classList.add("text-error", "dark:text-error");
-
 
     if (fillModeLabel.classList.contains("active")) {
       fillModeLabel.classList.add("activeHelpDialog");
@@ -126,7 +118,7 @@ document.body.addEventListener("click", (event) => {
 
     helpDialog.close();
   }
-
+})
 
 // Event listener to close the dialog when clicking outside
 document.body.addEventListener("click", (event) => {
@@ -154,4 +146,5 @@ document.body.addEventListener("click", (event) => {
     }
 
     helpDialog.close();
+  }
 });

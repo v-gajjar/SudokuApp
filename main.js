@@ -62,13 +62,13 @@ let guessModeInput = document.getElementById("guessMode");
 let fillModeInput = document.getElementById("fillMode");
 
 fillModeInput.addEventListener("change", () => { 
-  toggleFillOrGuessMode(); 
+  toggleBetweenFillAndGuessMode(); 
 });
 guessModeInput.addEventListener("change", () => {
-  toggleFillOrGuessMode(); 
+  toggleBetweenFillAndGuessMode(); 
 });
 
-function toggleFillOrGuessMode(){
+function toggleBetweenFillAndGuessMode(){
   guessModeInput.parentElement.classList.toggle("active");
   fillModeInput.parentElement.classList.toggle("active");
 

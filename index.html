@@ -41,7 +41,7 @@
             viewBox="0 0 24 24" 
             fill="currentColor" 
             id="settings" 
-            class="fill-current text-brand-300 dark:text-brand-700 size-10 cursor-pointer">
+            class="fill-current text-brand-300 dark:text-brand-700 size-10 cursor-pointer transition-colors duration-200">
             <path fill-rule="evenodd" d="M11.828 2.25c-.916 0-1.699.663-1.85 1.567l-.091.549a.798.798 0 0 1-.517.608 7.45 7.45 0 0 0-.478.198.798.798 0 0 1-.796-.064l-.453-.324a1.875 1.875 0 0 0-2.416.2l-.243.243a1.875 1.875 0 0 0-.2 2.416l.324.453a.798.798 0 0 1 .064.796 7.448 7.448 0 0 0-.198.478.798.798 0 0 1-.608.517l-.55.092a1.875 1.875 0 0 0-1.566 1.849v.344c0 .916.663 1.699 1.567 1.85l.549.091c.281.047.508.25.608.517.06.162.127.321.198.478a.798.798 0 0 1-.064.796l-.324.453a1.875 1.875 0 0 0 .2 2.416l.243.243c.648.648 1.67.733 2.416.2l.453-.324a.798.798 0 0 1 .796-.064c.157.071.316.137.478.198.267.1.47.327.517.608l.092.55c.15.903.932 1.566 1.849 1.566h.344c.916 0 1.699-.663 1.85-1.567l.091-.549a.798.798 0 0 1 .517-.608 7.52 7.52 0 0 0 .478-.198.798.798 0 0 1 .796.064l.453.324a1.875 1.875 0 0 0 2.416-.2l.243-.243c.648-.648.733-1.67.2-2.416l-.324-.453a.798.798 0 0 1-.064-.796c.071-.157.137-.316.198-.478.1-.267.327-.47.608-.517l.55-.091a1.875 1.875 0 0 0 1.566-1.85v-.344c0-.916-.663-1.699-1.567-1.85l-.549-.091a.798.798 0 0 1-.608-.517 7.507 7.507 0 0 0-.198-.478.798.798 0 0 1 .064-.796l.324-.453a1.875 1.875 0 0 0-.2-2.416l-.243-.243a1.875 1.875 0 0 0-2.416-.2l-.453.324a.798.798 0 0 1-.796.064 7.462 7.462 0 0 0-.478-.198.798.798 0 0 1-.517-.608l-.091-.55a1.875 1.875 0 0 0-1.85-1.566h-.344ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd" />
             <title>Settings</title>
           </svg>          
@@ -69,15 +69,14 @@
     <!-- CONTAINER closes -->
 
     <!-- GAME BOARD -->
-    <!-- TODO: Adjust grid dimensions -->
     <div class="relative">
       <div
-        class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6"
+        class="grid grid-cols-3 h-64 w-screen border border-4 border-brand-100 md:mx-auto md:w-5/6 lg:w-2/5 my-6 relative"
         id="gameBoard"
       ></div>
       <!-- DIALOGS -->
       <!-- Help Dialog-->
-      <dialog id="helpDialog" class="absolute inset-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col gap-6 justify-center font-semibold text-center text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden">
+      <dialog id="helpDialog" class="absolute top-0 bottom-0 left-0 right-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col justify-center font-semibold text-center text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden gap-2 z-10">
         <h2 class="text-brand-950 dark:text-brand-100 font-extrabold">How do I play Sudoku?</h2>
           <p>Tap a cell, then select a number.</p>
           <p>Fill each 3 x 3 set with numbers.</p>
@@ -169,11 +168,13 @@
 
       <!-- PLAY MODE -->
       <div
-        class="mx-auto flex w-1/2 justify-between border border-4 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600 mb-12 md:w-1/3 lg:w-1/5"
+        class="mx-auto flex w-1/2 justify-between border border-4 border-brand-950 text-lg font-extrabold dark:border-brand-600 dark:text-brand-600 mb-12 md:w-1/3 lg:w-1/5 transition-colors duration-500 ease-in-out"
+        id="playMode"
       >
         <label
           for="fillMode"
-          class="active cursor-pointer transition-colors flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2"
+          id="fillModeLabel"
+          class="active cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2"
         >
           Fill
           <input
@@ -186,7 +187,8 @@
         </label>
         <label
           for="guessMode"
-          class="cursor-pointer transition-colors flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2"
+          id="guessModeLabel"
+          class="cursor-pointer flex justify-center peer-checked:bg-brand-600 peer-checked:text-brand-100 w-1/2 transition-colors duration-350 ease-in-out"
         >
           Guess
           <input

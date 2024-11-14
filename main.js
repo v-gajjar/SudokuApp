@@ -132,7 +132,6 @@ document.body.addEventListener("click", (event) => {
       guessModeLabel.classList.remove("activeHelpDialog");
     } else {
       guessModeLabel.classList.remove("text-error");
-      guessModeLabel.classList.add("text-brand-950", "dark:text-brand-600");
     }
 
     helpDialog.close();

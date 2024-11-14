@@ -58,7 +58,30 @@ window.addEventListener("resize", () => {
   generateGameBoard();
 });
 
+let fillMode = true;
+let guessMode = false;
+
+let guessModeInput = document.getElementById("guessMode");
+let fillModeInput = document.getElementById("fillMode");
+
+fillModeInput.addEventListener("change", () => { 
+  toggleBetweenFillAndGuessMode(); 
+});
+guessModeInput.addEventListener("change", () => {
+  toggleBetweenFillAndGuessMode(); 
+});
+
+function toggleBetweenFillAndGuessMode(){
+  guessModeInput.parentElement.classList.toggle("active");
+  fillModeInput.parentElement.classList.toggle("active");
+
+  guessMode === true ? false : true;
+  fillMode === true ? false : true;
+}
+
+
 document.getElementById("help").addEventListener("click", (event) => {
+
   helpDialog.classList.remove("hidden");
   helpDialog.show();
 

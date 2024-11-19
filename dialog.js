@@ -8,37 +8,23 @@ export function toggleDialog(dialog, action) {
   }
 }
 
-export function toggleHelpDialogClasses(settingsIcon, fillModeLabel, guessModeLabel, action) {
+export function toggleHelpDialogClasses(
+  settingsIcon,
+  fillModeLabel,
+  guessModeLabel,
+  action,
+) {
   if (action === "open") {
     settingsIcon.classList.remove("fill-current");
+    settingsIcon.classList.remove("text-brand-300", "dark:text-brand-700");
     settingsIcon.classList.add("text-error", "dark:text-error");
 
-    if (fillModeLabel.classList.contains("active")) {
-      fillModeLabel.classList.add("activeHelpDialog");
-    } else {
-      fillModeLabel.classList.add("text-error");
-    }
-
-    if (guessModeLabel.classList.contains("active")) {
-      guessModeLabel.classList.add("activeHelpDialog");
-    } else {
-      guessModeLabel.classList.add("text-error");
-    }
+    fillModeLabel.classList.add("activeHelpDialog");
+    guessModeLabel.classList.add("activeHelpDialog");
   } else if (action === "close") {
     settingsIcon.classList.add("fill-current");
     settingsIcon.classList.remove("text-error", "dark:text-error");
-
-    if (fillModeLabel.classList.contains("active")) {
-      fillModeLabel.classList.remove("activeHelpDialog");
-    } else {
-      fillModeLabel.classList.remove("text-error");
-    }
-
-    if (guessModeLabel.classList.contains("active")) {
-      guessModeLabel.classList.remove("activeHelpDialog");
-    } else {
-      guessModeLabel.classList.remove("text-error");
-      guessModeLabel.classList.add("text-brand-950", "dark:text-brand-600");
-    }
+    fillModeLabel.classList.remove("activeHelpDialog");
+    guessModeLabel.classList.remove("activeHelpDialog");
   }
 }

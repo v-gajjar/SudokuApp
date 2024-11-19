@@ -1,9 +1,12 @@
 "use strict";
 
+import { toggleDialog, toggleHelpDialogClasses } from './dialog.js';
+
 const helpDialog = document.getElementById("helpDialog");
 const settingsIcon = document.getElementById("settings");
 const fillModeLabel = document.getElementById("fillModeLabel");
 const guessModeLabel = document.getElementById("guessModeLabel");
+const settingsDialog = document.getElementById("settingsDialog");
 
 const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -81,9 +84,7 @@ function toggleBetweenFillAndGuessMode(){
 
 
 document.getElementById("help").addEventListener("click", (event) => {
-
-  helpDialog.classList.remove("hidden");
-  helpDialog.show();
+  toggleDialog(helpDialog, "open");
 
   // TODO: Make this a separate function as it's used in at least two places so far.
   const gameBoard = document.getElementById("gameBoard");
@@ -91,24 +92,9 @@ document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.style.width = gameBoardWidth;
   helpDialog.style.height = gameBoardWidth;
 
-  if (helpDialog.open) {
-    settingsIcon.classList.remove("fill-current");
-    settingsIcon.classList.add("text-error", "dark:text-error");
-
-    if (fillModeLabel.classList.contains("active")) {
-      fillModeLabel.classList.add("activeHelpDialog");
-    } else {
-      fillModeLabel.classList.add("text-error");
-    }
-
-    if (guessModeLabel.classList.contains("active")) {
-      guessModeLabel.classList.add("activeHelpDialog");
-    } else {
-      guessModeLabel.classList.add("text-error");
-    }
-    event.stopPropagation();
-  }
-});
+  toggleHelpDialogClasses(settingsIcon, fillModeLabel, guessModeLabel, "open");
+  event.stopPropagation();
+  });
 
 // Event listener to close the dialog when clicking outside
 document.body.addEventListener("click", (event) => {
@@ -117,23 +103,29 @@ document.body.addEventListener("click", (event) => {
     !helpDialog.contains(event.target) &&
     event.target.id !== "help"
   ) {
-    helpDialog.classList.add("hidden");
+    toggleDialog(helpDialog, "close");
 
-    settingsIcon.classList.add("fill-current");
-    settingsIcon.classList.remove("text-error", "dark:text-error");
+    toggleHelpDialogClasses(settingsIcon, fillModeLabel, guessModeLabel, "close");
+  }
+});
 
-    if (fillModeLabel.classList.contains("active")) {
-      fillModeLabel.classList.remove("activeHelpDialog");
-    } else {
-      fillModeLabel.classList.remove("text-error");
-    }
+settingsIcon.addEventListener("click", (event) => {
+  toggleDialog(settingsDialog, "open");
 
-    if (guessModeLabel.classList.contains("active")) {
-      guessModeLabel.classList.remove("activeHelpDialog");
-    } else {
-      guessModeLabel.classList.remove("text-error");
-    }
+  const gameBoard = document.getElementById("gameBoard");
+  const gameBoardWidth = window.getComputedStyle(gameBoard).width;
+  settingsDialog.style.width = gameBoardWidth;
+  settingsDialog.style.height = gameBoardWidth;
 
-    helpDialog.close();
+  event.stopPropagation();
+});
+
+document.body.addEventListener("click", (event) => {
+  if (
+    settingsDialog.open &&
+    !settingsDialog.contains(event.target) &&
+    event.target.id !== "settings"
+  ) {
+    toggleDialog(settingsDialog, "close");
   }
 });

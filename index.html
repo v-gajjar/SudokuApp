@@ -86,6 +86,40 @@
           <p><b>Fill</b> mode: Add 1 number to a cell.</p>
           <p><b>Guess</b> mode: Add possible numbers to a cell.</p>
       </dialog>
+      <!-- Settings Dialog-->
+      <dialog id="settingsDialog" class="absolute top-0 bottom-0 left-0 right-0 h-full bg-brand-50 dark:bg-brand-800 flex flex-col justify-center items-start gap-9 font-semibold text-wrap text-brand-800 dark:text-brand-300 px-2 md:px-4 hidden gap-2 z-10">
+        <div class="flex justify-between px-4 py-2 border w-full">
+          <button id="easyLevel">Easy</button>
+          <button id="mediumLevel">Medium</button>
+          <button id="hardLevel">Hard</button>
+          <button id="randomLevel">Random</button>
+      </div>
+        <div class="flex items-center gap-2">
+          <button 
+            id="autoCheckGuesses"
+            aria-pressed="false" 
+            class="w-6 h-6 bg-gray-300 relative border-2 border-brand-400focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"
+          >
+            <span 
+              class="absolute left-1 top-1 w-4 h-4 transition-transform transform"
+            ></span>
+          </button>
+          <span>Auto check guesses</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button 
+            id="showClock"
+            aria-pressed="false" 
+            class="w-6 h-6 bg-gray-300 relative border-2 border-brand-400focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"
+          >
+            <span 
+              class="absolute left-1 top-1 w-4 h-4 transition-transform transform"
+            ></span>
+          </button>
+          <span>Show clock</span>
+        </div>
+        </div>
+      </dialog>
     </div>
     <!-- Container Reopens -->
     <div class="px-10 py-4 text-brand-950 md:mx-20 lg:mx-80 xl:mx-96">

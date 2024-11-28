@@ -78,8 +78,8 @@ function toggleBetweenFillAndGuessMode() {
   guessModeInput.parentElement.classList.toggle("active");
   fillModeInput.parentElement.classList.toggle("active");
 
-  guessMode === true ? false : true;
-  fillMode === true ? false : true;
+  guessMode = !guessMode;
+  fillMode = !fillMode;
 }
 
 document.getElementById("help").addEventListener("click", (event) => {

@@ -92,12 +92,6 @@ document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.style.height = gameBoardWidth;
 
   toggleHelpDialogClasses(settingsIcon, fillModeLabel, guessModeLabel, "open");
-  // settingsIcon.classList.remove("fill-current");
-  // settingsIcon.classList.remove("text-brand-300", "dark:text-brand-700");
-  // settingsIcon.classList.add("text-error", "dark:text-error");
-
-  // fillModeLabel.classList.add("activeHelpDialog");
-  // guessModeLabel.classList.add("activeHelpDialog");
 
   event.stopPropagation();
 });

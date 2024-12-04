@@ -2,6 +2,12 @@
 
 import { toggleDialog, toggleHelpDialogClasses } from "./dialog.js";
 
+let fillMode = true;
+let guessMode = false;
+
+let guessModeInput = document.getElementById("guessMode");
+let fillModeInput = document.getElementById("fillMode");
+
 const helpDialog = document.getElementById("helpDialog");
 const settingsIcon = document.getElementById("settings");
 const fillModeLabel = document.getElementById("fillModeLabel");
@@ -48,11 +54,38 @@ function generateGameBoard() {
       innerCell.classList.add(["justify-center"]);
       innerCell.classList.add(["items-center"]);
       innerCell.setAttribute(`id`, `cell-${i}-${j}`);
-      innerCell.innerText = practiseBoard[i][j];
 
+      if ( guessMode ){
+        innerCell.classList.add(["grid"]);
+        innerCell.classList.add(["grid-cols-3"]);
+
+        for (let k = 0; k < 9; k++) {
+          let guessCell = createGuessNumberCell(i, j, k);
+          innerCell.appendChild(guessCell);
+        }
+      }
+
+      if ( fillMode ){
+        innerCell.innerText = practiseBoard[i][j];
+      }
+      
       outerCell.appendChild(innerCell);
     }
   }
+}
+
+function createGuessNumberCell(outerGridCellIndex, innerGridCellIndex, guessCellIndex){
+  let guessCell = document.createElement("div");
+  guessCell.classList.add(["guessCell"]);
+  guessCell.setAttribute(`id`, `guess-cell-${guessCellIndex}`);
+  guessCell.classList.add(["text-center"]);
+  guessCell.classList.add(["flex"]);
+  guessCell.classList.add(["justify-center"]);
+  guessCell.classList.add(["items-center"]);
+  guessCell.setAttribute(`id`, `cell-${outerGridCellIndex}-${innerGridCellIndex}-${guessCellIndex}`);
+  guessCell.innerText = guessCellIndex+1;
+
+  return guessCell;
 }
 
 generateGameBoard();
@@ -60,12 +93,6 @@ generateGameBoard();
 window.addEventListener("resize", () => {
   generateGameBoard();
 });
-
-let fillMode = true;
-let guessMode = false;
-
-let guessModeInput = document.getElementById("guessMode");
-let fillModeInput = document.getElementById("fillMode");
 
 fillModeInput.addEventListener("change", () => {
   toggleBetweenFillAndGuessMode();
@@ -80,6 +107,8 @@ function toggleBetweenFillAndGuessMode() {
 
   guessMode = !guessMode;
   fillMode = !fillMode;
+
+  generateGameBoard();
 }
 
 document.getElementById("help").addEventListener("click", (event) => {

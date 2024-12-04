@@ -13,6 +13,9 @@ const settingsIcon = document.getElementById("settings");
 const fillModeLabel = document.getElementById("fillModeLabel");
 const guessModeLabel = document.getElementById("guessModeLabel");
 const settingsDialog = document.getElementById("settingsDialog");
+const clockToggle = document.getElementById("showClock");
+const timerBlock = document.getElementById("timerBlock");
+const clockToggleCheck = document.getElementById("clockToggleCheck");
 
 const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -111,6 +114,28 @@ function toggleBetweenFillAndGuessMode() {
   generateGameBoard();
 }
 
+// Toggle clock
+let clockIsActive = true;
+function toggleClock() {
+  clockToggle.checked = !clockToggle.checked;
+  if (clockToggle.checked) {
+    timerBlock.classList.toggle("hidden");
+    clockToggleCheck.classList.toggle("hidden");
+    clockToggle.ariaPressed = "false";
+    clockIsActive = false;
+  } else {
+    timerBlock.classList.toggle("hidden");
+    clockToggleCheck.classList.toggle("hidden");
+    clockToggle.areaPressed = "true";
+    clockIsActive = true;
+  }
+}
+
+clockToggle.addEventListener("click", () => {
+  toggleClock();
+});
+
+// Toggle help & settings dialog
 document.getElementById("help").addEventListener("click", (event) => {
   toggleDialog(helpDialog, "open");
 
@@ -121,12 +146,6 @@ document.getElementById("help").addEventListener("click", (event) => {
   helpDialog.style.height = gameBoardWidth;
 
   toggleHelpDialogClasses(settingsIcon, fillModeLabel, guessModeLabel, "open");
-  // settingsIcon.classList.remove("fill-current");
-  // settingsIcon.classList.remove("text-brand-300", "dark:text-brand-700");
-  // settingsIcon.classList.add("text-error", "dark:text-error");
-
-  // fillModeLabel.classList.add("activeHelpDialog");
-  // guessModeLabel.classList.add("activeHelpDialog");
 
   event.stopPropagation();
 });
@@ -140,7 +159,12 @@ document.body.addEventListener("click", (event) => {
   ) {
     toggleDialog(helpDialog, "close");
 
-    toggleHelpDialogClasses(settingsIcon, fillModeLabel, guessModeLabel, "close")
+    toggleHelpDialogClasses(
+      settingsIcon,
+      fillModeLabel,
+      guessModeLabel,
+      "close",
+    );
   }
 });
 

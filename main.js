@@ -60,8 +60,7 @@ function generateGameBoard() {
         innerCell.classList.add(["grid-cols-3"]);
 
         for (let k = 0; k < 9; k++) {
-          let guessCell = createGuessNumberCell(i, j, k)
-          guessCell.innerText = k+1;
+          let guessCell = createGuessNumberCell(i, j, k);
           innerCell.appendChild(guessCell);
         }
       }
@@ -84,6 +83,7 @@ function createGuessNumberCell(outerGridCellIndex, innerGridCellIndex, guessCell
   guessCell.classList.add(["justify-center"]);
   guessCell.classList.add(["items-center"]);
   guessCell.setAttribute(`id`, `cell-${outerGridCellIndex}-${innerGridCellIndex}-${guessCellIndex}`);
+  guessCell.innerText = guessCellIndex+1;
 
   return guessCell;
 }

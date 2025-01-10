@@ -33,7 +33,6 @@ function generateGameBoard() {
   // Set height of gameBoard
   const gameBoard = document.getElementById("gameBoard");
   const gameBoardWidth = window.getComputedStyle(gameBoard).width;
-  gameBoard.style.height = gameBoardWidth;
 
   gameBoard.innerHTML = "";
 
@@ -75,6 +74,8 @@ function generateGameBoard() {
       outerCell.appendChild(innerCell);
     }
   }
+
+  gameBoard.style.height = gameBoardWidth;
 }
 
 function createGuessNumberCell(outerGridCellIndex, innerGridCellIndex, guessCellIndex){
@@ -85,6 +86,8 @@ function createGuessNumberCell(outerGridCellIndex, innerGridCellIndex, guessCell
   guessCell.classList.add(["flex"]);
   guessCell.classList.add(["justify-center"]);
   guessCell.classList.add(["items-center"]);
+  guessCell.classList.add(["text-xs"]);
+  guessCell.classList.add(["leading-[0.5rem]"]);
   guessCell.setAttribute(`id`, `cell-${outerGridCellIndex}-${innerGridCellIndex}-${guessCellIndex}`);
   guessCell.innerText = guessCellIndex+1;
 

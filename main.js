@@ -1,7 +1,6 @@
 "use strict";
 
 import { toggleDialog, toggleHelpDialogClasses } from "./dialog.js";
-import { toggleLightDarkMode, SunIcon, MoonIcon } from "./lightDarkMode.js";
 
 let fillMode = true;
 let guessMode = false;
@@ -10,7 +9,6 @@ let guessModeInput = document.getElementById("guessMode");
 let fillModeInput = document.getElementById("fillMode");
 
 const helpDialog = document.getElementById("helpDialog");
-const lightDarkButton = document.getElementById("lightDarkButton");
 const settingsIcon = document.getElementById("settings");
 const fillModeLabel = document.getElementById("fillModeLabel");
 const guessModeLabel = document.getElementById("guessModeLabel");
@@ -87,7 +85,6 @@ function createGuessNumberCell(outerGridCellIndex, innerGridCellIndex, guessCell
   guessCell.classList.add(["flex"]);
   guessCell.classList.add(["justify-center"]);
   guessCell.classList.add(["items-center"]);
-  guessCell.classList.add(["text-xs"]);
   guessCell.setAttribute(`id`, `cell-${outerGridCellIndex}-${innerGridCellIndex}-${guessCellIndex}`);
   guessCell.innerText = guessCellIndex+1;
 
@@ -191,22 +188,3 @@ document.body.addEventListener("click", (event) => {
     toggleDialog(settingsDialog, "close");
   }
 });
-
-// set light/dark mode based on user preference
-document.addEventListener("DOMContentLoaded", () => {
-  const storedPreference = localStorage.getItem("theme");
-  const systemPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (storedPreference === "dark" || (!storedPreference && systemPreference)) {
-    document.documentElement.classList.add("dark");
-    lightDarkButton.innerHTML = SunIcon;
-  } else {
-    document.documentElement.classList.remove("dark");
-    lightDarkButton.innerHTML = MoonIcon;
-  };
-})
-
-// toggle light/dark mode
-lightDarkButton.addEventListener("click", () => {
-  toggleLightDarkMode();
-})

@@ -6,10 +6,12 @@ export function toggleLightDarkMode() {
     document.documentElement.classList.remove("dark");
     localStorage.setItem("theme", "light");
     lightDarkButton.innerHTML = MoonIcon;
+    lightDarkButton.setAttribute("aria-label", "Switch to dark mode");
   } else {
     document.documentElement.classList.add("dark");
     localStorage.setItem("theme", "dark");
     lightDarkButton.innerHTML = SunIcon;
+    lightDarkButton.setAttribute("aria-label", "Switch to light mode");
   }
 }
 

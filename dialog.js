@@ -24,6 +24,7 @@ export function toggleHelpDialogClasses(
   } else if (action === "close") {
     settingsIcon.classList.add("fill-current");
     settingsIcon.classList.remove("text-error", "dark:text-error");
+    settingsIcon.classList.add("text-brand-300", "dark:text-brand-700");
     fillModeLabel.classList.remove("activeHelpDialog");
     guessModeLabel.classList.remove("activeHelpDialog");
   }

@@ -1,5 +1,5 @@
 "use strict";
-
+// TODO: Get light/dark mode working again.
 import { toggleDialog, toggleHelpDialogClasses } from "./dialog.js";
 import { toggleLightDarkMode, SunIcon, MoonIcon } from "./lightDarkMode.js";
 

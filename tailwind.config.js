@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
   content: ["./index.html", "./main.js"],
   theme: {
     colors: {
@@ -27,11 +26,11 @@ export default {
     function ({ addUtilities }) {
       addUtilities({
         ".no-scrollbar": {
-          "scrollbar-width": "none" /* Firefox */,
-          "-ms-overflow-style": "none" /* IE 10+ */,
+          "scrollbar-width": "none", /* Firefox */
+          "-ms-overflow-style": "none", /* IE 10+ */
         },
         "no-scrollbar::-webkit-scrollbar": {
-          display: "none" /* All other browsers */,
+          display: "none", /* All other browsers */
         },
       });
     },

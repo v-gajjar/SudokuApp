@@ -60,7 +60,7 @@ function generateGameBoard() {
       innerCell.classList.add(["items-center"]);
       innerCell.setAttribute(`id`, `cell-${i}-${j}`);
 
-      if ( guessMode ){
+      if (guessMode) {
         innerCell.classList.add(["grid"]);
         innerCell.classList.add(["grid-cols-3"]);
 
@@ -70,16 +70,20 @@ function generateGameBoard() {
         }
       }
 
-      if ( fillMode ){
+      if (fillMode) {
         innerCell.innerText = practiseBoard[i][j];
       }
-      
+
       outerCell.appendChild(innerCell);
     }
   }
 }
 
-function createGuessNumberCell(outerGridCellIndex, innerGridCellIndex, guessCellIndex){
+function createGuessNumberCell(
+  outerGridCellIndex,
+  innerGridCellIndex,
+  guessCellIndex,
+) {
   let guessCell = document.createElement("div");
   guessCell.classList.add(["guessCell"]);
   guessCell.setAttribute(`id`, `guess-cell-${guessCellIndex}`);
@@ -88,8 +92,11 @@ function createGuessNumberCell(outerGridCellIndex, innerGridCellIndex, guessCell
   guessCell.classList.add(["justify-center"]);
   guessCell.classList.add(["items-center"]);
   guessCell.classList.add(["text-xs"]);
-  guessCell.setAttribute(`id`, `cell-${outerGridCellIndex}-${innerGridCellIndex}-${guessCellIndex}`);
-  guessCell.innerText = guessCellIndex+1;
+  guessCell.setAttribute(
+    `id`,
+    `cell-${outerGridCellIndex}-${innerGridCellIndex}-${guessCellIndex}`,
+  );
+  guessCell.innerText = guessCellIndex + 1;
 
   return guessCell;
 }
@@ -195,7 +202,9 @@ document.body.addEventListener("click", (event) => {
 // set light/dark mode based on user preference
 document.addEventListener("DOMContentLoaded", () => {
   const storedPreference = localStorage.getItem("theme");
-  const systemPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const systemPreference = window.matchMedia(
+    "(prefers-color-scheme: dark)",
+  ).matches;
 
   if (storedPreference === "dark" || (!storedPreference && systemPreference)) {
     document.documentElement.classList.add("dark");
@@ -203,10 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     document.documentElement.classList.remove("dark");
     lightDarkButton.innerHTML = MoonIcon;
-  };
-})
+  }
+});
 
 // toggle light/dark mode
 lightDarkButton.addEventListener("click", () => {
   toggleLightDarkMode();
-})
+});

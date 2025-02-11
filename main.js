@@ -18,6 +18,7 @@ const settingsDialog = document.getElementById("settingsDialog");
 const clockToggle = document.getElementById("showClock");
 const timerBlock = document.getElementById("timerBlock");
 const clockToggleCheck = document.getElementById("clockToggleCheck");
+const puzzleDifficulty = document.getElementById("puzzleDifficulty");
 
 const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -30,6 +31,15 @@ const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
 ];
+
+let difficulty = "easyLevel";
+document.querySelectorAll('input[name="level"]').forEach(input => {
+  input.addEventListener("change", () => {
+    const label = document.querySelector(`label[for="${input.id}"]`);
+    puzzleDifficulty.innerText = label ? label.innerText : "";
+    difficulty = input.id;
+  })
+});
 
 function generateGameBoard() {
   // Set height of gameBoard

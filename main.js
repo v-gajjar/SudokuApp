@@ -2,6 +2,14 @@
 
 import { toggleDialog, toggleHelpDialogClasses } from "./dialog.js";
 import { toggleLightDarkMode, SunIcon, MoonIcon } from "./lightDarkMode.js";
+import {
+  startTimer,
+  stopTimer,
+  resetTimer,
+} from "./clockTimer.js";
+
+// TODO When we get the puzzle working, we need to change this to false.
+export let gameRunning = true;
 
 let fillMode = true;
 let guessMode = false;
@@ -125,7 +133,7 @@ function toggleBetweenFillAndGuessMode() {
 }
 
 // Toggle clock
-let clockIsActive = true;
+export let clockIsActive = true;
 function toggleClock() {
   clockToggle.checked = !clockToggle.checked;
   if (clockToggle.checked) {
@@ -144,6 +152,10 @@ function toggleClock() {
 clockToggle.addEventListener("click", () => {
   toggleClock();
 });
+
+if (gameRunning && clockIsActive) {
+  startTimer();
+}
 
 // Toggle help & settings dialog
 document.getElementById("help").addEventListener("click", (event) => {

@@ -1,4 +1,4 @@
-import { clockIsActive, gameRunning } from "./main";
+import { clockIsActive, clockToggleCheck, gameRunning } from "./main";
 
 const clockDisplay = document.getElementById("puzzleTimer");
 const pauseTimerBtn = document.getElementById("pause");
@@ -22,21 +22,17 @@ export function updateTimer() {
     : `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    clearInterval(timerInterval);
-  } else {
-    startTimer();
-  }
-});
-
 export function pauseTimer() {
   clearInterval(timerInterval);
 }
 
-export function stopTimer() {
-  clearInterval(timerInterval);
-}
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    pauseTimer();
+  } else {
+    startTimer();
+  }
+});
 
 export function resetTimer() {
   clearInterval(timerInterval);
@@ -47,9 +43,12 @@ export function resetTimer() {
 pauseTimerBtn.addEventListener("click", () => {
   if (clockIsActive && pauseTimerBtn.ariaPressed === "false") {
     pauseTimerBtn.ariaPressed = "true";
+    console.log("paused");
+    clockDisplay.style.fontWeight = "600";
     pauseTimer();
   } else if (clockIsActive && pauseTimerBtn.ariaPressed === "true") {
     pauseTimerBtn.ariaPressed = "false";
+    clockDisplay.style.fontWeight = "800";
     startTimer();
   }
 });

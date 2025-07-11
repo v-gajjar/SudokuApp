@@ -1,25 +1,48 @@
 "use strict";
 
+// ===== IMPORTS =====
+// Existing dialog functionality
 import { toggleDialog, toggleHelpDialogClasses } from "./dialog.js";
+// Existing light/dark mode functionality
 import { toggleLightDarkMode, SunIcon, MoonIcon } from "./lightDarkMode.js";
 
+// ===== NEW MODULAR IMPORTS =====
+// Refactored: Game board generation moved to separate module for better organization
+import { generateGameBoard } from "./gameBoard.js";
+// Refactored: Game mode switching logic moved to dedicated module
+import { toggleBetweenFillAndGuessMode } from "./gameMode.js";
+// Refactored: Clock/timer functionality moved to separate module
+import { toggleClock, clockIsActive } from "./timer.js";
+
+// ===== GAME STATE VARIABLES =====
+// Core game mode states
 let fillMode = true;
 let guessMode = false;
 
+// ===== DOM ELEMENT REFERENCES =====
+// Game mode input elements
 let guessModeInput = document.getElementById("guessMode");
 let fillModeInput = document.getElementById("fillMode");
 
+// Dialog and UI elements
 const helpDialog = document.getElementById("helpDialog");
 const lightDarkButton = document.getElementById("lightDarkButton");
 const settingsIcon = document.getElementById("settings");
 const fillModeLabel = document.getElementById("fillModeLabel");
 const guessModeLabel = document.getElementById("guessModeLabel");
 const settingsDialog = document.getElementById("settingsDialog");
+
+// Timer/clock related elements
 const clockToggle = document.getElementById("showClock");
 const timerBlock = document.getElementById("timerBlock");
 const clockToggleCheck = document.getElementById("clockToggleCheck");
+
+// Puzzle difficulty elements
 const puzzleDifficulty = document.getElementById("puzzleDifficulty");
 
+// ===== GAME DATA =====
+// Practice board data - currently shows numbers 1-9 in each row
+// TODO: This will eventually be replaced with actual Sudoku puzzle data
 const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -32,7 +55,11 @@ const practiseBoard = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
 ];
 
+// ===== DIFFICULTY LEVEL HANDLING =====
+// Default difficulty setting
 let difficulty = "easyLevel";
+
+// Listen for difficulty level changes and update the display
 document.querySelectorAll('input[name="level"]').forEach(input => {
   input.addEventListener("change", () => {
     const label = document.querySelector(`label[for="${input.id}"]`);
@@ -41,125 +68,47 @@ document.querySelectorAll('input[name="level"]').forEach(input => {
   })
 });
 
-function generateGameBoard() {
-  // Set height of gameBoard
-  const gameBoard = document.getElementById("gameBoard");
-  const gameBoardWidth = window.getComputedStyle(gameBoard).width;
-  gameBoard.style.height = gameBoardWidth;
+// ===== INITIAL GAME SETUP =====
+// Generate the initial game board using the refactored module
+generateGameBoard(practiseBoard, guessMode, fillMode);
 
-  gameBoard.innerHTML = "";
+// ===== EVENT LISTENERS =====
 
-  for (let i = 0; i < practiseBoard.length; i++) {
-    let outerCell = document.createElement("div");
-    outerCell.classList.add(["outerCell"]);
-    outerCell.setAttribute(`id`, `cell-${i}`);
-    outerCell.classList.add(["border-2"]);
-    outerCell.classList.add(["grid"]);
-    outerCell.classList.add(["grid-cols-3"]);
-
-    gameBoard.appendChild(outerCell);
-
-    for (let j = 0; j < practiseBoard[i].length; j++) {
-      let innerCell = document.createElement("div");
-
-      innerCell.classList.add(["innerCell"]);
-      innerCell.classList.add(["border"]);
-      innerCell.classList.add(["text-center"]);
-      innerCell.classList.add(["flex"]);
-      innerCell.classList.add(["justify-center"]);
-      innerCell.classList.add(["items-center"]);
-      innerCell.setAttribute(`id`, `cell-${i}-${j}`);
-
-      if (guessMode) {
-        innerCell.classList.add(["grid"]);
-        innerCell.classList.add(["grid-cols-3"]);
-
-        for (let k = 0; k < 9; k++) {
-          let guessCell = createGuessNumberCell(i, j, k);
-          innerCell.appendChild(guessCell);
-        }
-      }
-
-      if (fillMode) {
-        innerCell.innerText = practiseBoard[i][j];
-      }
-
-      outerCell.appendChild(innerCell);
-    }
-  }
-}
-
-function createGuessNumberCell(
-  outerGridCellIndex,
-  innerGridCellIndex,
-  guessCellIndex,
-) {
-  let guessCell = document.createElement("div");
-  guessCell.classList.add(["guessCell"]);
-  guessCell.setAttribute(`id`, `guess-cell-${guessCellIndex}`);
-  guessCell.classList.add(["text-center"]);
-  guessCell.classList.add(["flex"]);
-  guessCell.classList.add(["justify-center"]);
-  guessCell.classList.add(["items-center"]);
-  guessCell.classList.add(["text-xs"]);
-  guessCell.setAttribute(
-    `id`,
-    `cell-${outerGridCellIndex}-${innerGridCellIndex}-${guessCellIndex}`,
-  );
-  guessCell.innerText = guessCellIndex + 1;
-
-  return guessCell;
-}
-
-generateGameBoard();
-
+// Responsive design: Regenerate board when window is resized
 window.addEventListener("resize", () => {
-  generateGameBoard();
+  generateGameBoard(practiseBoard, guessMode, fillMode);
 });
 
+// ===== GAME MODE SWITCHING =====
+// Refactored: These event listeners now use the modularized toggle function
+// Fill mode toggle
 fillModeInput.addEventListener("change", () => {
-  toggleBetweenFillAndGuessMode();
+  const result = toggleBetweenFillAndGuessMode(guessModeInput, fillModeInput, guessMode, fillMode, practiseBoard);
+  guessMode = result.guessMode;
+  fillMode = result.fillMode;
 });
+
+// Guess mode toggle
 guessModeInput.addEventListener("change", () => {
-  toggleBetweenFillAndGuessMode();
+  const result = toggleBetweenFillAndGuessMode(guessModeInput, fillModeInput, guessMode, fillMode, practiseBoard);
+  guessMode = result.guessMode;
+  fillMode = result.fillMode;
 });
 
-function toggleBetweenFillAndGuessMode() {
-  guessModeInput.parentElement.classList.toggle("active");
-  fillModeInput.parentElement.classList.toggle("active");
-
-  guessMode = !guessMode;
-  fillMode = !fillMode;
-
-  generateGameBoard();
-}
-
-// Toggle clock
-let clockIsActive = true;
-function toggleClock() {
-  clockToggle.checked = !clockToggle.checked;
-  if (clockToggle.checked) {
-    timerBlock.classList.toggle("hidden");
-    clockToggleCheck.classList.toggle("hidden");
-    clockToggle.ariaPressed = "false";
-    clockIsActive = false;
-  } else {
-    timerBlock.classList.toggle("hidden");
-    clockToggleCheck.classList.toggle("hidden");
-    clockToggle.areaPressed = "true";
-    clockIsActive = true;
-  }
-}
-
+// ===== TIMER/CLOCK FUNCTIONALITY =====
+// Refactored: Clock toggle now uses the modularized function
 clockToggle.addEventListener("click", () => {
-  toggleClock();
+  toggleClock(clockToggle, timerBlock, clockToggleCheck);
 });
 
+// ===== DIALOG MANAGEMENT =====
+// Help dialog functionality
 // Toggle help & settings dialog
 document.getElementById("help").addEventListener("click", (event) => {
   toggleDialog(helpDialog, "open");
 
   // TODO: Make this a separate function as it's used in at least two places so far.
+  // Set dialog size to match game board
   const gameBoard = document.getElementById("gameBoard");
   const gameBoardWidth = window.getComputedStyle(gameBoard).width;
   helpDialog.style.width = gameBoardWidth;
@@ -170,7 +119,7 @@ document.getElementById("help").addEventListener("click", (event) => {
   event.stopPropagation();
 });
 
-// Event listener to close the dialog when clicking outside
+// Close help dialog when clicking outside
 document.body.addEventListener("click", (event) => {
   if (
     helpDialog.open &&
@@ -188,9 +137,11 @@ document.body.addEventListener("click", (event) => {
   }
 });
 
+// Settings dialog functionality
 settingsIcon.addEventListener("click", (event) => {
   toggleDialog(settingsDialog, "open");
 
+  // Set dialog size to match game board (same as help dialog)
   const gameBoard = document.getElementById("gameBoard");
   const gameBoardWidth = window.getComputedStyle(gameBoard).width;
   settingsDialog.style.width = gameBoardWidth;
@@ -199,6 +150,7 @@ settingsIcon.addEventListener("click", (event) => {
   event.stopPropagation();
 });
 
+// Close settings dialog when clicking outside
 document.body.addEventListener("click", (event) => {
   if (
     settingsDialog.open &&

@@ -9,7 +9,7 @@
  * - Managing timer state
  * - Clock display controls
  * 
- * Author: Refactored by contributor for better code structure
+ * Author: Refactored by Shoaib Mohammed for better code structure
  */
 
 // Timer/clock functionality

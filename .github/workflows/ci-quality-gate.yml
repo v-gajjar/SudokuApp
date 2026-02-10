@@ -2,6 +2,8 @@ name: Sudko build check
 
 on:
   pull_request:
+    branches:
+      - develop
 
 jobs:
   build:

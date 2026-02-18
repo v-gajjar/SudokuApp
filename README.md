@@ -65,13 +65,13 @@ Sudoku App is a fully playable Sudoku experience focused on:
 
 ## Tech Stack
 
-| Category   | Tools          |
-| ---------- | -------------- |
-| Framework  | React 19       |
-| Build      | Vite 5         |
-| Styling    | Tailwind CSS 3 |
-| Linting    | ESLint 9       |
-| Formatting | Prettier       |
+| Category   | Tools                         |
+| ---------- | ----------------------------- |
+| Framework  | React 19                      |
+| Build      | Vite 5                        |
+| Styling    | Tailwind CSS 3                |
+| Linting    | ESLint 9                      |
+| Formatting | Prettier                      |
 | CI/CD      | GitHub Actions, Lighthouse CI |
 
 ---
@@ -102,15 +102,15 @@ git push origin main
 
 ## Scripts
 
-| Script                 | Description               |
-| ---------------------- | ------------------------- |
-| `npm run dev`          | Start dev server (Vite)   |
-| `npm run build`        | Production build          |
-| `npm run preview`      | Preview production build  |
-| `npm run lint`         | Run ESLint                |
-| `npm run lint:fix`     | ESLint with auto-fix      |
-| `npm run format`       | Format with Prettier      |
-| `npm run format:check` | Check Prettier formatting |
+| Script                 | Description                                        |
+| ---------------------- | -------------------------------------------------- |
+| `npm run dev`          | Start dev server (Vite)                            |
+| `npm run build`        | Production build                                   |
+| `npm run preview`      | Preview production build                           |
+| `npm run lint`         | Run ESLint                                         |
+| `npm run lint:fix`     | ESLint with auto-fix                               |
+| `npm run format`       | Format with Prettier                               |
+| `npm run format:check` | Check Prettier formatting                          |
 | `npm run lighthouse`   | Run Lighthouse CI (requires `npm run build` first) |
 
 **Before submitting a PR:** Run `npm run lint`, `npm run format:check`, and `npm run build`. CI also runs Lighthouse for performance, accessibility, and SEO checks.

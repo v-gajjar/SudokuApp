@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+.lighthouseci
 dist-ssr
 *.local
 output.css

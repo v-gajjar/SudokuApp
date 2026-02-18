@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#111827"/>
+  
+  <!-- Grid lines -->
+  <g stroke="#ffffff" stroke-width="4">
+    <!-- Vertical -->
+    <line x1="21.33" y1="12" x2="21.33" y2="52"/>
+    <line x1="42.66" y1="12" x2="42.66" y2="52"/>
+    
+    <!-- Horizontal -->
+    <line x1="12" y1="21.33" x2="52" y2="21.33"/>
+    <line x1="12" y1="42.66" x2="52" y2="42.66"/>
+  </g>
+
+  <!-- Bold center cell -->
+  <rect x="21.33" y="21.33" width="21.33" height="21.33" fill="#3b82f6"/>
+</svg>

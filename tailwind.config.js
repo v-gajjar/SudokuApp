@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./main.js"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
     colors: {
@@ -19,8 +19,22 @@ export default {
       },
       white: "#FFFFFF",
       error: "#FF8749",
+      "selected-cell": "#FF8749",
+      gray: {
+        300: "#D1D5DB",
+        900: "#171717",
+      },
+      black: "#000000",
+      red: {
+        400: "#F87171",
+        600: "#DC2626",
+      },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Nunito", "sans-serif"],
+      },
+    },
   },
   plugins: [
     "prettier-plugin-tailwindcss",

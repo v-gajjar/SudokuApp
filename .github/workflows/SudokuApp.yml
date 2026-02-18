@@ -1,0 +1,49 @@
+name: 🧩 Sudoku App
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+concurrency:
+  group: SudokuApp-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: 🧩 Sudoku App CI
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: read
+
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🧰 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🧹 ESLint
+        run: npm run lint
+
+      - name: 🎨 Prettier check
+        run: npm run format:check
+
+      - name: 🏗️ Build
+        run: npm run build
+
+      - name: 📊 Lighthouse CI
+        run: npx lhci collect && npx lhci assert
